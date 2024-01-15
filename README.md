@@ -1,1 +1,1 @@
-# iac-gitlab-adm-config
+# iac-gitlab-config

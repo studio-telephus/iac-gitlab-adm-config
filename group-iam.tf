@@ -49,7 +49,7 @@ resource "gitlab_personal_access_token" "iam_runner_sa" {
   user_id    = gitlab_user.iam_runner_sa.id
   name       = "GitLab & Spacelift"
   expires_at = "2025-01-10"
-  scopes     = ["api"]
+  scopes     = ["api", "read_api"]
 }
 
 resource "local_sensitive_file" "iam_runner_sa_pat" {
