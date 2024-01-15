@@ -39,7 +39,7 @@ resource "gitlab_group_membership" "iam_iam_runner_sa" {
   access_level = "maintainer"
 }
 
-resource "gitlab_group_membership" "iam_iam_runner_sa" {
+resource "gitlab_group_membership" "terraform_iam_runner_sa" {
   group_id     = gitlab_group.terraform.id
   user_id      = gitlab_user.iam_runner_sa.id
   access_level = "reporter"
