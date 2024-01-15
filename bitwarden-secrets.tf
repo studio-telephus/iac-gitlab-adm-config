@@ -14,3 +14,8 @@ module "minio_sa_api_key_platform" {
   id     = "901308ae-c614-432d-b4b5-b0f700655e20"
 }
 
+module "bw_iam_gitlab_user" {
+  source = "github.com/studio-telephus/terraform-bitwarden-get-item-login.git?ref=1.0.0"
+  id     = "afb3769e-2ed7-4aa6-99e8-b0f800d4d6d8"
+}
+
