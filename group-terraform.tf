@@ -2,5 +2,5 @@ resource "gitlab_group" "terraform" {
   name             = "terraform"
   description      = "Terraform Modules"
   path             = "terraform"
-  visibility_level = "private"
+  visibility_level = "internal"
 }
