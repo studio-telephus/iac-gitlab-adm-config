@@ -1,4 +1,4 @@
-module "gitlab_root_api_key" {
+module "gitlab_admin_api_key" {
   source = "github.com/studio-telephus/terraform-bitwarden-get-item-login.git?ref=1.0.0"
   id     = "71c1634f-867a-43f2-b7b6-b0f500ae3e17"
 }
