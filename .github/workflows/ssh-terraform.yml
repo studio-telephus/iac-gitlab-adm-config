@@ -16,7 +16,7 @@ jobs:
           SshPort: ${{ secrets.TEL_SSH_PORT }}
           SshUser: ${{ secrets.TEL_SSH_USER }}
           SshPrivateKey: ${{ secrets.GHA_SSH_PRIVATE_KEY }}
-          RemotePath: "~/components/gitlab/adm/config"
+          RemotePath: "~/build/gitlab/adm/config"
           BackendConfig: >
             {
               "endpoint": "${{ vars.MINIO_ADM_S3_ENDPOINT }}",
