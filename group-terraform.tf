@@ -7,7 +7,7 @@ resource "gitlab_group" "terraform" {
 
 resource "gitlab_project" "terraform_group_self_config" {
   name                          = "iac-gitlab-group-terraform"
-  namespace_id                  = gitlab_group.terraform.id
+  namespace_id                  = gitlab_group.platform.id
   visibility_level              = "private"
   builds_access_level           = "private"
   wiki_enabled                  = false
