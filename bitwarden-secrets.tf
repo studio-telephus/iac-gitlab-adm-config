@@ -23,3 +23,12 @@ module "bw_iam_gitlab_user" {
   id     = "afb3769e-2ed7-4aa6-99e8-b0f800d4d6d8"
 }
 
+module "bw_platform_bitwarden_user" {
+  source = "github.com/studio-telephus/terraform-bitwarden-get-item-login.git?ref=1.0.0"
+  id     = "26d40c85-98f6-4bc1-82f4-b0f500ae7ebf"
+}
+
+module "bw_iam_bitwarden_user" {
+  source = "github.com/studio-telephus/terraform-bitwarden-get-item-login.git?ref=1.0.0"
+  id     = "60ebf2b9-50c6-4996-85c9-b0f500d8d3b5"
+}

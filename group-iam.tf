@@ -5,12 +5,14 @@ resource "gitlab_group" "iam" {
   visibility_level = "private"
 }
 
+
 resource "gitlab_group_variable" "iam_minio_adm_sa_access_key" {
   group     = gitlab_group.iam.id
   key       = "MINIO_ADM_SA_ACCESS_KEY"
   value     = module.minio_sa_api_key_iam.data.username
   protected = false
   masked    = true
+  raw       = true
 }
 
 resource "gitlab_group_variable" "iam_minio_adm_sa_secret_key" {
@@ -19,7 +21,45 @@ resource "gitlab_group_variable" "iam_minio_adm_sa_secret_key" {
   value     = module.minio_sa_api_key_iam.data.password
   protected = false
   masked    = true
+  raw       = true
 }
+
+resource "gitlab_group_variable" "iam_bitwarden_master_password" {
+  group     = gitlab_group.iam.id
+  key       = "TF_VAR_bitwarden_master_password"
+  value     = module.bw_iam_bitwarden_user.data.password
+  protected = false
+  masked    = true
+  raw       = true
+}
+
+resource "gitlab_group_variable" "iam_bitwarden_client_id" {
+  group     = gitlab_group.iam.id
+  key       = "TF_VAR_bitwarden_client_id"
+  value     = module.bw_iam_bitwarden_user.data.client_id
+  protected = false
+  masked    = true
+  raw       = true
+}
+
+resource "gitlab_group_variable" "iam_bitwarden_client_secret" {
+  group     = gitlab_group.iam.id
+  key       = "TF_VAR_bitwarden_client_secret"
+  value     = module.bw_iam_bitwarden_user.data.client_secret
+  protected = false
+  masked    = true
+  raw       = true
+}
+
+resource "gitlab_group_variable" "iam_bitwarden_email" {
+  group     = gitlab_group.iam.id
+  key       = "TF_VAR_bitwarden_email"
+  value     = module.bw_iam_bitwarden_user.data.username
+  protected = false
+  masked    = false
+  raw       = true
+}
+
 
 # Should be split to Gitlab & Spacelift
 resource "gitlab_user" "iam_runner_sa" {
