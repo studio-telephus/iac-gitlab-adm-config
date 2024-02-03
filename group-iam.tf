@@ -5,7 +5,7 @@ resource "gitlab_group" "iam" {
   visibility_level = "private"
 }
 
-
+# Add only variables necessary to run the self-config repository
 resource "gitlab_group_variable" "iam_minio_adm_sa_access_key" {
   group     = gitlab_group.iam.id
   key       = "MINIO_ADM_SA_ACCESS_KEY"
