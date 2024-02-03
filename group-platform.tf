@@ -35,7 +35,7 @@ resource "gitlab_user" "platform_runner_sa" {
 resource "gitlab_group_membership" "platform_platform_runner_sa" {
   group_id     = gitlab_group.platform.id
   user_id      = gitlab_user.platform_runner_sa.id
-  access_level = "reporter"
+  access_level = "maintainer"
 }
 
 resource "gitlab_group_membership" "iam_platform_runner_sa" {
@@ -60,4 +60,17 @@ resource "gitlab_personal_access_token" "platform_runner_sa" {
 resource "local_sensitive_file" "platform_runner_sa_pat" {
   content  = gitlab_personal_access_token.platform_runner_sa.token
   filename = ".terraform/platform_runner_sa_pat.out"
+}
+
+resource "gitlab_project" "platform_group_self_config" {
+  name                          = "iac-gitlab-group-platform"
+  namespace_id                  = gitlab_group.platform.id
+  visibility_level              = "private"
+  builds_access_level           = "private"
+  wiki_enabled                  = false
+  packages_enabled              = false
+  default_branch                = "main"
+  merge_method                  = "merge"
+  auto_cancel_pending_pipelines = "enabled"
+  auto_devops_enabled           = false
 }

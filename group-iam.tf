@@ -56,3 +56,16 @@ resource "local_sensitive_file" "iam_runner_sa_pat" {
   content  = gitlab_personal_access_token.iam_runner_sa.token
   filename = ".terraform/iam_runner_sa_pat.out"
 }
+
+resource "gitlab_project" "iam_group_self_config" {
+  name                          = "iac-gitlab-group-iam"
+  namespace_id                  = gitlab_group.iam.id
+  visibility_level              = "private"
+  builds_access_level           = "private"
+  wiki_enabled                  = false
+  packages_enabled              = false
+  default_branch                = "main"
+  merge_method                  = "merge"
+  auto_cancel_pending_pipelines = "enabled"
+  auto_devops_enabled           = false
+}
