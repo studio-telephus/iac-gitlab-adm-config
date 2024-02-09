@@ -61,9 +61,9 @@ resource "gitlab_group_variable" "platform_bitwarden_email" {
 
 resource "gitlab_user" "platform_runner_sa" {
   name             = "Platform Runner Service Account"
-  username         = module.bw_platform_gitlab_user.data.username
-  password         = module.bw_platform_gitlab_user.data.password
-  email            = "${module.bw_platform_gitlab_user.data.username}@mail.adm.acme.corp"
+  username         = module.bw_gitlab_user_platform_runner_sa.data.username
+  password         = module.bw_gitlab_user_platform_runner_sa.data.password
+  email            = "${module.bw_gitlab_user_platform_runner_sa.data.username}@mail.adm.acme.corp"
   is_admin         = false
   can_create_group = false
   is_external      = false

@@ -13,12 +13,12 @@ module "minio_sa_api_key_platform" {
   id     = "901308ae-c614-432d-b4b5-b0f700655e20"
 }
 
-module "bw_platform_gitlab_user" {
+module "bw_gitlab_user_platform_runner_sa" {
   source = "github.com/studio-telephus/terraform-bitwarden-get-item-login.git?ref=1.0.0"
   id     = "b0a2beb3-4be5-4331-94e8-b0f500e8c694"
 }
 
-module "bw_iam_gitlab_user" {
+module "bw_gitlab_user_iam_runner_sa" {
   source = "github.com/studio-telephus/terraform-bitwarden-get-item-login.git?ref=1.0.0"
   id     = "afb3769e-2ed7-4aa6-99e8-b0f800d4d6d8"
 }

@@ -64,9 +64,9 @@ resource "gitlab_group_variable" "iam_bitwarden_email" {
 # Should be split to Gitlab & Spacelift
 resource "gitlab_user" "iam_runner_sa" {
   name             = "IAM Runner Service Account"
-  username         = module.bw_iam_gitlab_user.data.username
-  password         = module.bw_iam_gitlab_user.data.password
-  email            = "${module.bw_iam_gitlab_user.data.username}@mail.adm.acme.corp"
+  username         = module.bw_gitlab_user_iam_runner_sa.data.username
+  password         = module.bw_gitlab_user_iam_runner_sa.data.password
+  email            = "${module.bw_gitlab_user_iam_runner_sa.data.username}@mail.adm.acme.corp"
   is_admin         = false
   can_create_group = false
   is_external      = false
