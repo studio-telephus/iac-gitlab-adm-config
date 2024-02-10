@@ -112,3 +112,16 @@ resource "gitlab_project" "platform_group_self_config" {
   auto_cancel_pending_pipelines = "enabled"
   auto_devops_enabled           = false
 }
+
+resource "gitlab_project" "iac-gitlab-users" {
+  name                          = "iac-gitlab-users"
+  namespace_id                  = gitlab_group.platform.id
+  visibility_level              = "private"
+  builds_access_level           = "private"
+  wiki_enabled                  = false
+  packages_enabled              = false
+  default_branch                = "main"
+  merge_method                  = "merge"
+  auto_cancel_pending_pipelines = "enabled"
+  auto_devops_enabled           = false
+}
