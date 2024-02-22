@@ -7,7 +7,7 @@ resource "gitlab_user" "platform_runner_sa" {
   can_create_group = false
   is_external      = false
   reset_password   = false
-  projects_limit   = -1
+  projects_limit   = 1000
 }
 
 resource "gitlab_group_membership" "platform_platform_runner_sa" {
