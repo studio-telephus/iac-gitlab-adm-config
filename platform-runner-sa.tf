@@ -34,7 +34,14 @@ resource "gitlab_personal_access_token" "platform_runner_sa" {
   scopes     = ["api", "read_api"]
 }
 
-resource "local_sensitive_file" "platform_runner_sa_pat" {
-  content  = gitlab_personal_access_token.platform_runner_sa.token
-  filename = ".terraform/platform_runner_sa_pat.out"
+module "platform_runner_sa_pat" {
+  source   = "github.com/studio-telephus/terraform-bitwarden-create-item-login.git?ref=1.0.0"
+  name     = "platform_gitlab_api_key"
+  username = module.bw_gitlab_user_platform_runner_sa.data.username
+  password = gitlab_personal_access_token.platform_runner_sa.token
+}
+
+resource "local_sensitive_file" "platform_runner_sa_pat_id" {
+  content  = module.platform_runner_sa_pat.id
+  filename = ".terraform/platform_runner_sa_pat_id.out"
 }

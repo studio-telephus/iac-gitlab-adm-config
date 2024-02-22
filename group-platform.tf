@@ -69,6 +69,7 @@ resource "gitlab_project" "iac-gitlab-group-platform" {
   merge_method                  = "merge"
   auto_cancel_pending_pipelines = "enabled"
   auto_devops_enabled           = false
+  issues_enabled                = false
 }
 
 resource "gitlab_project" "iac-gitlab-users" {
@@ -82,4 +83,5 @@ resource "gitlab_project" "iac-gitlab-users" {
   merge_method                  = "merge"
   auto_cancel_pending_pipelines = "enabled"
   auto_devops_enabled           = false
+  issues_enabled                = false
 }
