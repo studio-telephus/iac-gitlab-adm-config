@@ -30,9 +30,9 @@ resource "gitlab_group_membership" "terraform_platform_runner_sa" {
 
 resource "gitlab_personal_access_token" "platform_runner_sa" {
   user_id    = gitlab_user.platform_runner_sa.id
-  name       = "GitLab"
+  name       = "GitLab & Spacelift"
   expires_at = "2025-02-10"
-  scopes     = ["api", "read_api"]
+  scopes     = ["api", "read_api", "read_repository", "write_repository"]
 }
 
 module "platform_runner_sa_pat" {
